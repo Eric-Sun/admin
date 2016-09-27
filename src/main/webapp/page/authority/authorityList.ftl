@@ -1,6 +1,5 @@
 <#import "layouts/layout.ftl" as layout />
 <@layout.mainLayout>
-<aside class="right-side">
     <!-- Content Header (Page header) -->
 
     <!-- Main content -->
@@ -59,5 +58,4 @@
 
     </section>
     <!-- /.content -->
-</aside>
 </@layout.mainLayout>

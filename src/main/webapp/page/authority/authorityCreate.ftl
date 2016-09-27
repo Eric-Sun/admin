@@ -1,6 +1,5 @@
 <#import "layouts/layout.ftl" as layout />
 <@layout.mainLayout>
-<aside class="right-side">
     <section class="content">
         <div class="col-md-9">
             <div class="box box-primary">
@@ -36,7 +35,6 @@
         </div>
         </div>
     </section>
-</aside>
 </@layout.mainLayout>
 <script type="text/javascript">
     $(function () {

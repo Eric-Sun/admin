@@ -55,7 +55,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <listener>
-        <listener-class>com.h13.slg.admin.core.BaseListener</listener-class>
+        <listener-class>com.j13.admin.core.BaseListener</listener-class>
     </listener>
 
     <servlet>
@@ -71,6 +71,11 @@
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
 </web-app>

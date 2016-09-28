@@ -1,9 +1,7 @@
 package com.j13.admin.core;
 
-import com.h13.slg.core.config.PropertiesConfiguration;
-import com.h13.slg.core.exception.RequestFatalException;
-import com.h13.slg.core.log.SlgLogger;
-import com.h13.slg.core.log.SlgLoggerEntity;
+
+import com.j13.admin.core.config.PropertiesConfiguration;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,10 +18,9 @@ public class BaseListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         try {
             PropertiesConfiguration.getInstance().addResource("/admin-core.properties");
-        } catch (RequestFatalException e) {
+        } catch (AdminException e) {
             e.printStackTrace();
         }
-        SlgLogger.info(SlgLoggerEntity.p("base","config load",-1,"ok"));
     }
 
     @Override

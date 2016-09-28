@@ -4,10 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 import com.j13.admin.core.AdminConstants;
 import com.j13.admin.core.AdminException;
+import com.j13.admin.core.config.PropertiesConfiguration;
 import com.j13.admin.net.DZ;
 import com.j13.admin.net.ListDZResponse;
 import com.j13.admin.net.SizeDZResponse;
-import com.h13.slg.core.config.PropertiesConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

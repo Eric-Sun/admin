@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by sunbo on 14-11-16.
  */
-@Repository
+@Repository("authorityDAO")
 public class AuthorityDAO {
 
 

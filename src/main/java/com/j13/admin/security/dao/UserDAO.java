@@ -22,7 +22,7 @@ import java.util.List;
  * Time: 下午2:54
  * To change this template use File | Settings | File Templates.
  */
-@Repository
+@Repository("userDAO")
 public class UserDAO {
 
     @Autowired

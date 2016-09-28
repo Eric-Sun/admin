@@ -14,7 +14,7 @@
 
     <context:annotation-config/>
     <!-- 把标记了@Controller注解的类转换为bean -->
-    <context:component-scan base-package="com.h13.slg.admin" />
+    <context:component-scan base-package="com.j13" />
     <bean
             class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
 

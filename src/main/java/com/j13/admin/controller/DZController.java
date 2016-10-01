@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +23,8 @@ public class DZController {
 
     @Autowired
     DZService dzService;
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
     @RequestMapping("/list")
     public String list(HttpServletRequest request, Map<String, Object> model) throws AdminException {
@@ -37,8 +41,9 @@ public class DZController {
         response.setCharacterEncoding("UTF-8");
         int draw = new Integer(request.getParameter("draw"));
         String date = request.getParameter("date");
-        if (date == null)
-            date = "09/16/2016";
+        if (date == null) {
+            date = sdf.format(new Date());
+        }
 
 
         int start = new Integer(request.getParameter("start"));

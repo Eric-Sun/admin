@@ -5,9 +5,7 @@ import com.google.common.collect.Maps;
 import com.j13.admin.core.AdminConstants;
 import com.j13.admin.core.AdminException;
 import com.j13.admin.core.config.PropertiesConfiguration;
-import com.j13.admin.net.DZ;
-import com.j13.admin.net.ListDZResponse;
-import com.j13.admin.net.SizeDZResponse;
+import com.j13.admin.net.DZResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,38 +21,27 @@ public class JaxManager {
     }
 
 
-    public List<DZ> listDZ(String date, int pageNum, int size) throws AdminException {
-        Map<String, String> innerParams = Maps.newHashMap();
-        innerParams.put("date", date);
-        innerParams.put("pageNum", pageNum + "");
-        innerParams.put("size", size + "");
-
-
+    public List<DZResponse> listDZ(String date, int pageNum, int size) throws AdminException {
         Map<String, String> params = Maps.newHashMap();
-        params.put("args", JSON.toJSONString(innerParams));
         params.put("act", "dz.listDZByDate");
+        params.put("date", date);
+        params.put("pageNum", pageNum + "");
+        params.put("size", size + "");
         String url = getBaseUrl();
-        String paramString = JSON.toJSONString(params);
-
         String rawResponse = InternetUtil.post(url, params);
-        ListDZResponse dzAddResponse = JSON.parseObject(rawResponse, ListDZResponse.class);
-        return dzAddResponse.getData();
+        List<DZResponse> dzAddResponse = JSON.parseArray(rawResponse, DZResponse.class);
+        return dzAddResponse;
     }
 
 
     public int sizeDZ(String date) throws AdminException {
-        Map<String, String> innerParams = Maps.newHashMap();
-        innerParams.put("date", date);
-
-
         Map<String, String> params = Maps.newHashMap();
-        params.put("args", JSON.toJSONString(innerParams));
         params.put("act", "dz.sizeDZByDate");
-        String url = getBaseUrl();
-        String paramString = JSON.toJSONString(params);
+        params.put("date", date);
 
+        String url = getBaseUrl();
         String rawResponse = InternetUtil.post(url, params);
-        SizeDZResponse response = JSON.parseObject(rawResponse, SizeDZResponse.class);
-        return response.getData();
+        int response = JSON.parseObject(rawResponse, Integer.class);
+        return response;
     }
 }

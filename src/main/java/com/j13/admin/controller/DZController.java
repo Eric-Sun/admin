@@ -3,7 +3,7 @@ package com.j13.admin.controller;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.j13.admin.core.AdminException;
-import com.j13.admin.net.DZ;
+import com.j13.admin.net.DZResponse;
 import com.j13.admin.service.DZService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +49,7 @@ public class DZController {
         int start = new Integer(request.getParameter("start"));
         int length = new Integer(request.getParameter("length"));
 
-        List<DZ> list = dzService.listDZ(date, start, length);
+        List<DZResponse> list = dzService.listDZ(date, start, length);
         int size = dzService.sizeDZ(date);
         model.put("draw", draw);
         model.put("recordsTotal", size);
@@ -57,7 +57,7 @@ public class DZController {
 
 
         List<List<String>> l1 = Lists.newLinkedList();
-        for (DZ dz : list) {
+        for (DZResponse dz : list) {
             List<String> ll1 = Lists.newLinkedList();
             ll1.add(dz.getContent());
             l1.add(ll1);

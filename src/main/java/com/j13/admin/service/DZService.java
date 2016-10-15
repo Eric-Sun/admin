@@ -1,7 +1,7 @@
 package com.j13.admin.service;
 
 import com.j13.admin.core.AdminException;
-import com.j13.admin.net.DZ;
+import com.j13.admin.net.DZResponse;
 import com.j13.admin.util.JaxManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +16,10 @@ public class DZService {
     @Autowired
     JaxManager jaxManager;
 
-    public List<DZ> listDZ(String date, int start, int length) throws AdminException {
+    public List<DZResponse> listDZ(String date, int start, int length) throws AdminException {
 
         int pageNum = start / length;
-        List<DZ> list = jaxManager.listDZ(date, pageNum, SIZE);
+        List<DZResponse> list = jaxManager.listDZ(date, pageNum, SIZE);
 
         return list;
     }

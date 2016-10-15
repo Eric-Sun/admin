@@ -2,7 +2,7 @@ package com.j13.admin.net;
 
 import java.util.Date;
 
-public class DZ {
+public class DZResponse {
     private long fid;
 
     private long id;

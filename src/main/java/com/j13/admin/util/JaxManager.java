@@ -6,6 +6,8 @@ import com.j13.admin.core.AdminConstants;
 import com.j13.admin.core.AdminException;
 import com.j13.admin.core.config.PropertiesConfiguration;
 import com.j13.admin.net.DZResponse;
+import com.j13.admin.net.ListDZByDateResp;
+import com.j13.admin.net.SizeDZByDateResp;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +31,8 @@ public class JaxManager {
         params.put("size", size + "");
         String url = getBaseUrl();
         String rawResponse = InternetUtil.post(url, params);
-        List<DZResponse> dzAddResponse = JSON.parseArray(rawResponse, DZResponse.class);
-        return dzAddResponse;
+        ListDZByDateResp resp = JSON.parseObject(rawResponse, ListDZByDateResp.class);
+        return resp.getData();
     }
 
 
@@ -41,7 +43,7 @@ public class JaxManager {
 
         String url = getBaseUrl();
         String rawResponse = InternetUtil.post(url, params);
-        int response = JSON.parseObject(rawResponse, Integer.class);
-        return response;
+        SizeDZByDateResp resp = JSON.parseObject(rawResponse, SizeDZByDateResp.class);
+        return resp.getSize();
     }
 }
